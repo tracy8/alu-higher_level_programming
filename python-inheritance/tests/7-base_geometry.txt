@@ -1,0 +1,58 @@
+MPORT
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> Module = __import__('7-base_geometry').__doc__
+>>> Class = __import__('7-base_geometry').BaseGeometry.__doc__
+>>> Function = __import__('7-base_geometry').BaseGeometry.area.__doc__
+>>> Function2 = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+
+TEST
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 23) #int
+>>> bg.integer_validator("width", 12)
+
+>>> bg.integer_validator("x", 2.213) #floats
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", True) #boolean
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", "John") #str
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", []) #list
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", {}) #dictionary
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", ()) #tuple
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator("x", None) #None
+Traceback (most recent call last):
+    ...
+TypeError: x must be an integer
+>>> bg.integer_validator() #void
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+DOCSTRING
+>>> print(len(Module) > 0)
+True
+
+>>> print(len(Class) > 0)
+True
+
+>>> print(len(Function) > 0)
+True
+
+>>> print(len(Function2) > 0)
+True

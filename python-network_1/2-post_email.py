@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""__summary__
-- Write a Python script takes in a URL
-- sends a POST request to the passed URL
-- takes email as a parameter
-- displays the body of the response
+"""Sends a POST request to a given URL with a given email.
+Usage: ./2-post_email.py <URL> <email>
+  - Displays the body of the response.
 """
 import sys
 import urllib.parse
